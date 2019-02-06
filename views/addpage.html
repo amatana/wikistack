@@ -5,23 +5,39 @@
   <hr>
   <form method="POST" action="/wiki/">
     
-    <div>PLACEHOLDER FOR AUTHOR NAME FIELD</div>
-    
-    <div>PLACEHOLDER FOR AUTHOR EMAIL FIELD</div>
-    
-    <div class="form-group">
-      <label for="title" class="col-sm-2 control-label">Page Title</label>
-      <div class="col-sm-10">
-        <input name="title" type="text" class="form-control"/>
-      </div>
+  <div class="form-group">
+
+    <div class="col-sm-10">
+      <label for="nombreAutor"><h4>Tu Nombre:</h4>
+        <input type="text" name="nombre"  id="nombreAutor">
+      </label>
+    </div>
+
+    <div class="col-sm-10">
+      <label for="emailAutor"><h4>Tu Email:</h4>
+        <input type="text" name="email"  id="emailAutor">
+      </label>
     </div>
     
-    <div>PLACEHOLDER FOR PAGE CONTENT TEXTAREA FIELD</div>
+
+    <div class="col-sm-10">
+      <label for="title" ><h4>Page Title</h4>
+        <input name="title" type="text" id="title" />
+      </label>
+    </div>
+
+    
+    <div class="col-sm-10">
+       <label for="postContent"><h4>Redactá el cuerpo de tu publicación</h4>
+         <textarea name="postContent" id="postContent" rows="15" cols="80"></textarea>
+       </label> 
+    </div>
     
     <div>PLACEHOLDER FOR PAGE STATUS INPUT FIELD</div>
 
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-primary">submit</button>
+        <br> 
+      <button type="submit" class="btn btn-primary">SUBMIT</button>
     </div>
   
   </form>

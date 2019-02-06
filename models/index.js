@@ -5,6 +5,7 @@ const Page = db.define("page",{
 	title: {
 		type: S.STRING,
 		allowNull: false,
+		unique: true
 	},
 	urltitle : {
 		type: S.STRING,
@@ -16,8 +17,7 @@ const Page = db.define("page",{
 		allowNull: false,
 	},
 	status : {
-		type: S.ENUM("open","close"),
-		allowNull: false
+		type: S.ENUM("open","close")
 	},
 	date: {
         type: S.DATE,
@@ -28,8 +28,13 @@ const Page = db.define("page",{
     	get() {
     	return "/wiki/" + this.getDataValue(urltitle)
     	}
-    }
-});
+    }},
+    {
+    	hooks:{
+    		beforeValidate: 
+    	}
+
+   });
 
 const User = db.define("user", {
 	name:{
@@ -42,6 +47,7 @@ const User = db.define("user", {
 		isEmail: true,
 		},
 		allowNull: false,
+		unique: true
 	},
 });
 
