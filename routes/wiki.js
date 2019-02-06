@@ -5,7 +5,7 @@ const Page = models.Page;
 const User = models.User;
 
 router.get('/', function(req, res, next) {
-  res.send('funcionó GET /wiki/');
+  res.render('index');
 });
 
 router.get("/add", function(req,res,next){
@@ -13,13 +13,30 @@ router.get("/add", function(req,res,next){
 });
 
 router.post("/", function(req,res,next){
-	res.json(req.body)
 
-	var page = Page.build({
+	Page.create({
     	title: req.body.title,
     	content: req.body.postContent
-  	});
-  	page.save()
+  	})
+  	.then(function(page){
+  		console.log(page)
+  		res.render("wikipage")
+  	})
+  	
+
+});
+
+router.get("/:urltitle", function(req,res,next){
+	Page.findOne({
+			where: {
+				urltitle : req.params.urltitle
+			}
+		})
+	.then(function(foundPage){
+		res.render("wikipage")
+	})
+	.catch(next);
+		
 });
 
 

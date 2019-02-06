@@ -31,7 +31,9 @@ const Page = db.define("page",{
     }},
     {
     	hooks:{
-    		beforeValidate: 
+    		beforeValidate: function(page){
+    			page.urltitle = page.title.replace(/ /gi, "_")
+    		}
     	}
 
    });

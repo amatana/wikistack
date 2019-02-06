@@ -30,7 +30,7 @@ app.set('view engine', 'html');
 app.engine('html', nunjucks.render);
 
 // ! Sincronización con las tablas
-models.db.sync({force:true})
+models.db.sync({force:false})
 .then(function () {
     return models.Page.sync({})
 })
